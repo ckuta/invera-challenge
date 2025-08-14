@@ -1,0 +1,35 @@
+services:
+  web:
+    build: .
+    restart: always
+    volumes:
+      - .:/app
+      - logs_volume:/app/logs
+    env_file:
+      - ./.env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  db:
+    image: postgres:14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
+    networks:
+      - app-network
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_DB=${DB_NAME}
+
+networks:
+  app-network:
+
+volumes:
+  postgres_data:
+  logs_volume:
