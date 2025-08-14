@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "invera-challenge"
+version = "0.1.0"
+description = "This is my personal take on the TODO list challenge from Invera’s Software Developer recruitment process. Built with Python and Django, it reflects my approach to solution design, clean coding practices, and meeting the challenge requirements."
+authors = ["ale"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+django = "^5.2.5"
+djangorestframework = "^3.16.1"
+djangorestframework-simplejwt = "^5.5.1"
+drf-spectacular = "^0.28.0"
+django-filter = "^25.1"
+gunicorn = "^23.0.0"
+psycopg2-binary = "^2.9.10"
+pyyaml = "^6.0.2"
+python-decouple = "^3.8"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+factory-boy = "^3.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
